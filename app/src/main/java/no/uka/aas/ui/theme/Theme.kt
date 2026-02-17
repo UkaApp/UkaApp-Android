@@ -22,6 +22,7 @@ private val DarkColorScheme = darkColorScheme(
     onBackground = NeutralCream,
     onSurface = NeutralCream,
 )
+
 private val LightColorScheme = lightColorScheme(
     primary = UKAOrange,
     secondary = UKAGreen,
@@ -38,22 +39,16 @@ private val LightColorScheme = lightColorScheme(
     onSurface = NeutralInk,
 )
 
-
-
-
-
 @Composable
-fun UKAÅsTheme(
+fun UKAiAsTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-
     val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
-
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = AppTypography, // Endret fra Typography til AppTypography
         content = content
     )
 }
