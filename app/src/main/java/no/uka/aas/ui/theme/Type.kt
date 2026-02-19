@@ -13,8 +13,14 @@ val DmSans = FontFamily(
     Font(
         resId = R.font.dmsans_regular,
         weight = FontWeight.Normal
-    )
+    ),
+Font(
+resId = R.font.dmsans_bold,
+weight = FontWeight.Bold
 )
+)
+
+
 // Balgin Bold Italic (kun til logo / spesielle titler)
 val Balgin = FontFamily(
     Font(
