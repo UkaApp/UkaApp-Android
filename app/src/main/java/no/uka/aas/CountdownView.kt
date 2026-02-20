@@ -33,6 +33,9 @@ import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
 import java.time.ZonedDateTime
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.ui.graphics.Color
 
 @Composable
 fun CountdownView(
@@ -116,7 +119,27 @@ fun CountdownView(
         }
 
         // 🔽 Spacer 2: presser "Presentert av" + logo helt ned
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier.weight(0.5f))
+
+        Button(
+            onClick = { println("JUKSEKNAPP TRYKKET") },
+            modifier = Modifier
+                .height(70.dp)          // høyde
+                .width(250.dp),         // bredde
+            colors = ButtonDefaults.buttonColors(
+                containerColor = NeutralCream,
+                contentColor = UKAOrange
+            )
+        ) {
+            Text(
+                text = "Jukseknapp",
+                fontFamily = DmSans,
+                fontWeight = FontWeight.Bold,
+                fontSize = 25.sp
+            )
+        }
+
+        Spacer(modifier = Modifier.height(100.dp))
 
         Text(
             text = "Presentert av",
