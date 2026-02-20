@@ -28,7 +28,7 @@ import kotlinx.coroutines.delay
 import no.uka.aas.ui.theme.Balgin
 import no.uka.aas.ui.theme.DmSans
 import no.uka.aas.ui.theme.NeutralCream
-import no.uka.aas.ui.theme.UKAOrangeLight
+import no.uka.aas.ui.theme.UKAOrange
 import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
@@ -36,11 +36,10 @@ import java.time.ZonedDateTime
 
 @Composable
 fun CountdownView(
-    // TODO: sett riktig startdato/tid for UKA her
-    // Eksempel: 2026-09-20 10:00 i Oslo
+    // Teller ned til 1. oktober 2026 kl 00:00 i norsk tid (Europe/Oslo)
     target: ZonedDateTime = ZonedDateTime.of(
-        2026, 9, 20,
-        10, 0, 0, 0,
+        2026, 10, 1,
+        0, 0, 0, 0,
         ZoneId.of("Europe/Oslo")
     )
 ) {
@@ -65,7 +64,7 @@ fun CountdownView(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(UKAOrangeLight)
+            .background(UKAOrange)
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -89,12 +88,14 @@ fun CountdownView(
             fontWeight = FontWeight.Bold
         )
 
-        Spacer(modifier = Modifier.height(60.dp))
+        // 🔼 Spacer 1: styrer hvor høyt "Starter om" + tall ligger
+        // Mindre tall = høyere opp. Større tall = lengre ned.
+        Spacer(modifier = Modifier.weight(0.8f))
 
         Text(
             text = "Starter om ...",
             color = NeutralCream,
-            fontSize = 20.sp,
+            fontSize = 30.sp,
             fontFamily = DmSans,
             fontWeight = FontWeight.Bold
         )
@@ -114,6 +115,7 @@ fun CountdownView(
             CountdownNumber(seconds)
         }
 
+        // 🔽 Spacer 2: presser "Presentert av" + logo helt ned
         Spacer(modifier = Modifier.weight(1f))
 
         Text(
@@ -152,4 +154,3 @@ private fun CountdownNumber(value: Long) {
 fun CountdownViewPreview() {
     CountdownView()
 }
-
