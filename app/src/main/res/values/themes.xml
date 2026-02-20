@@ -6,7 +6,7 @@
 
     <!-- Splash-theme -->
     <style name="Theme.UKAiÅs.Splash" parent="Theme.SplashScreen">
-    <item name="windowSplashScreenBackground">@color/uka_peach</item>
+    <item name="windowSplashScreenBackground">@color/uka_orange_light</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_logo</item>
         <item name="postSplashScreenTheme">@style/Theme.UKAiÅs</item>
     </style>
