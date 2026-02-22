@@ -29,7 +29,8 @@ class MainActivity : ComponentActivity() {
 
                     when (screen) {
                         "intro" -> IntroView(onNext = { screen = "countdown" })
-                        "countdown" -> CountdownView()
+                        "countdown" -> CountdownView(onNext = { screen = "main" })
+                        "main" -> MainScaffold()
                     }
                 }
             }
