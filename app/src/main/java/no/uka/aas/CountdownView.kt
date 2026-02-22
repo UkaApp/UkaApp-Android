@@ -35,16 +35,16 @@ import java.time.ZoneId
 import java.time.ZonedDateTime
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.ui.graphics.Color
+import no.uka.aas.ui.theme.UKAOrangeLight
 
 @Composable
 fun CountdownView(
-    // Teller ned til 1. oktober 2026 kl 00:00 i norsk tid (Europe/Oslo)
     target: ZonedDateTime = ZonedDateTime.of(
         2026, 10, 1,
         0, 0, 0, 0,
         ZoneId.of("Europe/Oslo")
-    )
+    ),
+    onNext: () -> Unit = {}
 ) {
     var remainingMs by remember { mutableLongStateOf(0L) }
 
@@ -122,13 +122,13 @@ fun CountdownView(
         Spacer(modifier = Modifier.weight(0.5f))
 
         Button(
-            onClick = { println("JUKSEKNAPP TRYKKET") },
+            onClick = onNext,
             modifier = Modifier
-                .height(70.dp)          // høyde
-                .width(250.dp),         // bredde
+                .height(70.dp)
+                .width(250.dp),
             colors = ButtonDefaults.buttonColors(
                 containerColor = NeutralCream,
-                contentColor = UKAOrange
+                contentColor = UKAOrangeLight
             )
         ) {
             Text(
