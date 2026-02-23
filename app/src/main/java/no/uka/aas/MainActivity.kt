@@ -13,6 +13,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import android.util.Log
+import androidx.compose.runtime.LaunchedEffect
+import com.google.firebase.messaging.FirebaseMessaging
+import com.google.firebase.FirebaseApp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +24,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            LaunchedEffect(Unit) {
+                FirebaseMessaging.getInstance().token.addOnCompleteListener { task ->
+                    if (!task.isSuccessful) return@addOnCompleteListener
+                    Log.d("FCM", "FCM token: ${task.result}")
+                }
+            }
             UKAiAsTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
