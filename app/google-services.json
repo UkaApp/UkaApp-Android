@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "903826338273",
+    "project_id": "uka-i-aas",
+    "storage_bucket": "uka-i-aas.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903826338273:android:26f1ae99f2c8e2717a22a0",
+        "android_client_info": {
+          "package_name": "no.uka.aas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiCMirvSwKKN6nQwuha3M_P1n2QOIYJvA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
