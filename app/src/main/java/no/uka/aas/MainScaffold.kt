@@ -20,17 +20,17 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.compose.runtime.mutableIntStateOf
 
 @Composable
 fun MainScaffold() {
-    var selectedIndex by remember { mutableStateOf(0) }
+    var selectedIndex by remember { mutableIntStateOf(0) }
 
     val backgroundOrange = Color(0xFFFFA23A)
     val navBarOrange = Color(0xFFFFB96B)
@@ -68,20 +68,15 @@ fun MainScaffold() {
                         selected = selected,
                         onClick = { selectedIndex = index },
 
-                        // Viktig: Fjerner Material sin "pill"/indicator bak valgt item
                         colors = NavigationBarItemDefaults.colors(
                             indicatorColor = Color.Transparent,
                             selectedIconColor = Color.White,
                             unselectedIconColor = Color.White.copy(alpha = 0.80f),
-                            selectedTextColor = Color.White,
-                            unselectedTextColor = Color.White.copy(alpha = 0.80f)
+                            selectedTextColor = Color.Transparent,
+                            unselectedTextColor = Color.Transparent
                         ),
 
-                        // Vi styrer selv label-visning
                         alwaysShowLabel = false,
-                        label = {
-                            if (selected) Text(item.label)
-                        },
 
                         icon = {
                             Column(
